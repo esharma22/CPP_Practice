@@ -1,0 +1,46 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+void bubbleSort(int *arr, int length);
+
+int main()
+{
+	int arr[6];
+	srand(time(0));
+
+	cout << "Input array is:" << endl;
+	for(int i = 0; i < 6; i++)
+	{
+		arr[i] = rand() % 100;
+		cout << arr[i] << '\t';
+	}
+	cout << endl;
+
+	bubbleSort(arr, 6);
+	return 0;
+}
+
+void bubbleSort(int *arr, int length)
+{
+	for(int i = 0; i < length; i++)
+	{
+		for(int j = i + 1; j < length; j++)
+		{
+			if(arr[j] < arr[i])
+			{
+				int temp = arr[i]; 
+				arr[i] = arr[j]; 
+				arr[j] = temp;
+			}
+		}
+	}
+
+	cout << "Sorted array is:" << endl;
+	for(int i = 0; i < length; i++)
+	{
+		cout << arr[i] << '\t';
+	}
+	cout << endl;
+}
